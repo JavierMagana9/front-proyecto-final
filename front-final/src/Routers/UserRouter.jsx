@@ -7,7 +7,7 @@ export const UserRouter = () => {
     <>
     <Routes>
 
-        <Route path='calendar' element={<CalendarPage/>}/>
+        <Route path='/calendar' element={<CalendarPage/>}/>
 
     </Routes>
     
