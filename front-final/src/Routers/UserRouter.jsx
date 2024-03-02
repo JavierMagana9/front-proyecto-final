@@ -1,13 +1,14 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { CalendarPage } from '../User/pages/CalendarPage'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { ProfilePage } from '../User/pages/ProfilePage'
 
 export const UserRouter = () => {
   return (
     <>
     <Routes>
 
-        <Route path='/calendar' element={<CalendarPage/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path="/*" element={<Navigate to="/profile" />} />
 
     </Routes>
     

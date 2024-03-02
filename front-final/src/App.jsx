@@ -1,15 +1,18 @@
 import { AppRouter } from "./Routers/AppRouter";
+import { UserProvider } from "./context/UserProvider";
 
 function App() {
   return (
     <>
-      <header>Header</header>
+      <header className="align-center">Header</header>
 
-      <main>
-        <AppRouter />
+      <main className="container">
+        <UserProvider>
+          <AppRouter />
+        </UserProvider>
       </main>
 
-      <footer>footer</footer>
+      <footer className="align-center">footer</footer>
     </>
   );
 }
