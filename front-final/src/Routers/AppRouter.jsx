@@ -1,14 +1,20 @@
 
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { LoginPage } from "../Pages/LoginPage";
-import { UserRouter } from "./UserRouter";
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoadingPage } from "../Pages/LoadingPage";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { AdsDashPage, ReservationDashPage, UserDashPage } from "../Admin/pages";
+import { AdsPage, MyAdsPage, ProfilePage, ReservationPage } from "../User/pages";
+import { AdsSubPage, MyAdsSubPage, ProfileSubPage } from "../UserSub";
+import { AdsFreePage, HomeFreePage } from "../Pages";
+
 
 
 export const AppRouter = () => {
     const { isAuthenticated, isLoading } = useAuth0();
-    const navigate = useNavigate();
+   
+    const { role } = useContext(UserContext)
 
 
 
@@ -23,11 +29,35 @@ export const AppRouter = () => {
         
       { !isAuthenticated ? (
         <>
-          <Route path="login" element={<LoginPage />} />        
-          <Route path="/*" element={<Navigate to='login'/>}/>
+          <Route path="/" element={<HomeFreePage />} />
+          <Route path="/adsfree" element={<AdsFreePage />} />  
+           
+          <Route path="/*" element={<Navigate to='/'/>}/>
         </>
-      ) :   
-       <Route path="/*" element={<UserRouter />} />
+      ) : role === 'admin' ? ( 
+        <>
+        <Route path="/userdashboard" element={<UserDashPage />} />
+        <Route path="/adsdashboard" element={<AdsDashPage />} />
+        <Route path="/reservationdashboard" element={<ReservationDashPage />} />
+        <Route path="/*" element={<Navigate to='/userdashboard'/>}/>
+        </>
+
+      )   : role === 'user_reg' ? (
+        <>
+          <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="/ads" element={<AdsPage />} />
+          <Route path="/myads" element={<MyAdsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/*" element={<Navigate to='/reservation' />} />
+        </>
+      ) : (
+        <>
+          <Route path="/adssub" element={<AdsSubPage />} />
+          <Route path="/myadssub" element={<MyAdsSubPage />} />
+          <Route path="/profilessub" element={<ProfileSubPage />} />
+          <Route path="/*" element={<Navigate to='/adssub' />} />
+        </>
+      )
     }  
     </Routes>
     </>
