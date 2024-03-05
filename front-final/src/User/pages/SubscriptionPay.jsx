@@ -1,24 +1,19 @@
-import React, {useContext, useState } from 'react'
-import { DateContext } from '../calendar/context/DateContext'
+import React, { useState } from 'react'
 
-export const PaymentPage = () => {
+export const SubscriptionPay = () => {
 
 
     const [pay, setPay] = useState(null)
 
-    const {stateStart,stateEnd} = useContext(DateContext)
+ 
 
     const handleSubmit = async (ev) => {
         ev.preventDefault()
 
-        const calcHour={numero:(stateEnd-stateStart)/3600000}
-
         // const num = {numero:ev.target.numero.value}
 
-        console.log(calcHour)
-        const respuesta = await fetch("http://localhost:5000/api/v1/create-checkout-session", {
+        const respuesta = await fetch("http://localhost:5000/api/v1/create-checkout-session-sub", {
             method: "POST", // or 'PUT'
-            body: JSON.stringify(calcHour), // data can be `string` or {object}!
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -32,20 +27,23 @@ export const PaymentPage = () => {
         //revisar la docu de fetch
     }
 
-    return (
-        <div>PaymentPage
-             <div>
+  return (
+    <div>SubscriptionPay
+ <div>PaymentPage
+            {/* <div>
                 <img src='https://desacorde.periodismoudec.cl/wp-content/uploads/2022/11/IMG_5903.jpg' alt="SaladeEnsayo" />
-            </div> 
+            </div> */}
+            <h3>ESTE ES EL BOTON PRUEBA DE SUBSCRIPCION</h3>
             <pre>{JSON.stringify(pay, null, 3)}</pre>
            
             <form onSubmit={handleSubmit}>
-                {/* <input type='text' name='numero' /> */}
-                <input type='submit' value='SALA TEMPORAL' />
+                <input type='submit' value='SUBSCRIPCION' />
 
             </form>
 
 
         </div>
-    )
+
+    </div>
+  )
 }

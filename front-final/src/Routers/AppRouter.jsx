@@ -4,17 +4,19 @@ import { LoginPage } from "../Pages/LoginPage";
 import { UserRouter } from "./UserRouter";
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoadingPage } from "../Pages/LoadingPage";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 
 export const AppRouter = () => {
     const { isAuthenticated, isLoading } = useAuth0();
     const navigate = useNavigate();
 
-
-
     if (isLoading) {
         return <LoadingPage/>;
       }
+
+      
 
   return (
     <>

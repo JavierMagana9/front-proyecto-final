@@ -1,15 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { format, parse, startOfWeek, getDay} from 'date-fns'
-// import parse from 'date-fns/parse'
-// import startOfWeek from 'date-fns/startOfWeek'
-// import getDay from 'date-fns/getDay'
-// import enUS from 'date-fns/locale/en-US'
 import esES from 'date-fns/locale/es';
 import { messageTranslate } from '../calendar/helpers/messageTranslate';
 import { DateContext } from '../calendar/context/DateContext';
-
+import { UserContext } from '../../context/UserContext';
+import { apiEvent } from '../calendar/helpers/apiEvent';
 
 
 const locales = {
@@ -23,50 +20,41 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 })
-// const myEventsList= [{
-//     title: "evento1",
-//     start: new Date('2024-02-27 10:22:00'),
-//     end: new Date('2024-02-28 10:42:00')
-//   },{
-//     title: "evento2",
-//     start: new Date('2024-02-28 10:22:00'),
-//     end: new Date('Sun Mar 03 2024 12:09:19 GMT+0100 (hora estándar de Europa central)')
-//   },
-// ]
-// const myEventsList = [{
-//   title: "evento1",
-//   start: new Date(),
-//   end: new Date (),
-// //   end: addHours(new Date(), 2)
-// }]
-
 
 export const CalendarPage = () => {
 
-  const {msg,stateStart,setStateStart,stateEnd,setStateEnd}=useContext(DateContext)
+const [event, setEvent] = useState([])
+
+const {msg,stateStart,setStateStart,stateEnd,setStateEnd}=useContext(DateContext)
+
+const{user}=useContext(UserContext)
 
 
 
-  const myEventsList= [{
-    title: "evento1",
-    start: new Date('2024-02-27 10:22:00'),
-    end: new Date('2024-02-28 10:42:00')
-  },{
-    title: "evento2",
-    start: new Date(stateStart),
-    end: new Date(stateEnd)
-  },
-]
+const handleClick=async()=>{
 
-const handleClick=()=>{
+  const respuesta = await fetch("http://localhost:5000/api/v1/calendar/ver-reservas")
+        const event = await respuesta.json()
+        
+        const listEvent=event.data.map((evento)=>{
+          return {
+            title:evento.nombre,
+            start:new Date (evento.date_start),
+            end:new Date (evento.date_end)
+        }})
 
+        setEvent(listEvent)
+        console.log(event.data)
+        console.log("lista eventos",listEvent)
+        
 const calcHour=(stateEnd-stateStart)/3600000
 
+console.log("usuario",user.nickname)
   console.log("esta es la resta",calcHour)
 
-
+  
 }
-
+const myEventsList= event
 
 console.log("esta es la resta",stateEnd-stateStart)
 
@@ -83,6 +71,7 @@ console.log("esta es la resta",stateEnd-stateStart)
       //eventPropGetter:{eventStyleGetter}
       //eventStyleGETTER es para asignar estilos
       />
+      <pre>{JSON.stringify(event,null,3)}</pre>
       <button onClick={handleClick}>boton</button>
     </div>
 

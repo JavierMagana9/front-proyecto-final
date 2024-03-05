@@ -38,7 +38,7 @@ console.log("estado en end",stateEnd)
         showTimeSelect
         timeFormat="HH:mm"
         timeIntervals={60}
-        dateFormat='LLLLLL'
+        dateFormat='PPpp'
         locale={es}
     />
 {/* <input type="button" value="fecha inicio" onClick={dateStart}  />

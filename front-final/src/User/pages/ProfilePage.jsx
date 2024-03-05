@@ -7,6 +7,7 @@ import { DataPickerPage } from './DataPickerPage';
 import { PaymentPage } from './PaymentPage';
 import { CalendarPage } from './CalendarPage';
 import { EndDatePicker } from '../calendar/pages/EndDatePicker';
+import { SubscriptionPay } from './SubscriptionPay';
 
 export const ProfilePage = () => {
 
@@ -16,24 +17,24 @@ export const ProfilePage = () => {
     return <LoadingPage />
   }
 
-
   return (
     isAuthenticated && (
       <div>
         <Logout />
         <pre>{JSON.stringify(user, null, 3)}</pre>
-        <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
         <Prueba/>
         <CalendarPage />
-        <div className='container'>
+        <div className='container date-padding'>
         <DataPickerPage />
         <hr />
         <EndDatePicker />
         </div>
     
         <PaymentPage />
+        <hr />
+        <SubscriptionPay/>
       </div>
     )
   );

@@ -8,7 +8,7 @@ export const UserRouter = () => {
     <Routes>
 
         <Route path='/profile' element={<ProfilePage/>}/>
-        <Route path="/*" element={<Navigate to="/profile" />} />
+        {/* <Route path="/*" element={<Navigate to="/profile" />} /> */}
 
     </Routes>
     
