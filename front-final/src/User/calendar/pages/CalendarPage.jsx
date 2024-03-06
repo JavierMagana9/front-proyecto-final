@@ -3,10 +3,10 @@ import { Calendar, dateFnsLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { format, parse, startOfWeek, getDay} from 'date-fns'
 import esES from 'date-fns/locale/es';
-import { messageTranslate } from '../calendar/helpers/messageTranslate';
-import { DateContext } from '../calendar/context/DateContext';
-import { UserContext } from '../../context/UserContext';
-import { apiEvent } from '../calendar/helpers/apiEvent';
+import { messageTranslate } from '../helpers/messageTranslate';
+import { DateContext } from '../context/DateContext';
+import { UserContext } from '../../../context/UserContext';
+import { apiEvent } from '../helpers/apiEvent';
 
 
 const locales = {
@@ -27,7 +27,7 @@ const [event, setEvent] = useState([])
 
 const {msg,stateStart,setStateStart,stateEnd,setStateEnd}=useContext(DateContext)
 
-const{user}=useContext(UserContext)
+const{user,idRol}=useContext(UserContext)
 
 
 
@@ -44,13 +44,13 @@ const handleClick=async()=>{
         }})
 
         setEvent(listEvent)
-        console.log(event.data)
-        console.log("lista eventos",listEvent)
+        // console.log(event.data)
+        // console.log("lista eventos",listEvent)
         
 const calcHour=(stateEnd-stateStart)/3600000
 
-console.log("usuario",user.nickname)
-  console.log("esta es la resta",calcHour)
+// console.log("usuario",user.nickname)
+//   console.log("esta es la resta",calcHour)
 
   
 }
@@ -61,6 +61,7 @@ console.log("esta es la resta",stateEnd-stateStart)
   return (
     <div>
     <div >
+      <pre>{JSON.stringify(idRol,null,3)}</pre>
       <Calendar
         localizer={localizer}
         startAccessor='start'

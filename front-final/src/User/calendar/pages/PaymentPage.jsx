@@ -1,5 +1,5 @@
 import React, {useContext, useState } from 'react'
-import { DateContext } from '../calendar/context/DateContext'
+import { DateContext } from '../context/DateContext'
 
 export const PaymentPage = () => {
 

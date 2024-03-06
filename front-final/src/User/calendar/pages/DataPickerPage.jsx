@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import DataPicker from 'react-datepicker'
 import { es } from 'date-fns/locale/es';
 import 'react-datepicker/dist/react-datepicker.css'
-import { DateContext } from '../calendar/context/DateContext';
+import { DateContext } from '../context/DateContext';
 
 export const DataPickerPage = () => {
 
