@@ -4,7 +4,7 @@ import { DateProvider } from "./User/calendar/context/DateProvider";
 import { UserProvider } from "./context/UserProvider";
 
 function App() {
-  console.log(import.meta.env)
+
   return (
     <>
       <Header />
