@@ -4,6 +4,7 @@
   --prime-red: #941b0c;
   --orange: #bc3908;
   --yellow: #f6aa1c;
+  --green: #02848B;
   
 }
 
@@ -15,6 +16,10 @@
   box-sizing: border-box;
 }
 
+p, h1, h2, h3, h4, a, ul, li, button{
+  font-family: 'Barlow Condensed';
+}
+
 .container {
     margin: 0 auto;
     width: 90%;
@@ -23,6 +28,22 @@
 .flex-container{
   display: flex;
   flex-wrap: wrap;
+}
+
+.color-block-red-dark{
+  background-color: var(--red-dark) ;
+  padding:  20px 0;
+}
+.color-block-prime-red{
+  background-color: var(--prime-red) ;
+  padding:  10px 0;
+}
+.color-block-orange{
+  background-color: var(--orange) ;
+  padding:  5px 0;
+}
+.space-around {
+  justify-content: space-around;
 }
 
 .align-center{
@@ -38,10 +59,60 @@
     width: 200px;
 }
 
+<<<<<<< HEAD
 .date-padding{
   padding: 10px;
 }
 
 img{
   width: 100%;
+=======
+.btn {
+  border-radius: 2px;
+  background-color: var(--grey);
+  /* color: var(--prime-black);
+  border: 1px solid var(--sec-black); */
+}
+
+.no-btn {
+  border: none;
+  cursor: pointer;
+  background-color: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;   
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* /////////////////////////////////////////////
+              beginning  768
+/////////////////////////////////////////////*/
+@media screen and (min-width: 768px){
+
+}
+
+/* /////////////////////////////////////////////
+                768 end
+/////////////////////////////////////////////*/
+/* /////////////////////////////////////////////
+               beginning 992
+/////////////////////////////////////////////*/
+@media screen and (min-width: 992px) {
+
+}
+
+/* /////////////////////////////////////////////
+                992 end
+/////////////////////////////////////////////*/
+
+
+@media screen and (min-width: 1200px) {
+
+>>>>>>> 9553703e99e2e2482f4dfaf5a007f47898530d41
 }

@@ -4,6 +4,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
 
 export const UserProvider = ({ children }) => {
+
+  const [role, setRole] = useState('')
   
 const {user} = useAuth0()
 const [idRol, setIdRol] = useState(null)
@@ -57,9 +59,37 @@ useEffect(() => {
 }, [user])
 
 
+useEffect(()=>{
+setRole('user_sub')
+}, [])
+
+
+
+const users = [
+  {
+    email: 'jorge@jorge.com',
+    role: 'admin',
+    name:'Jorge'
+  },
+  {
+    email: 'pedro@pedro.com',
+    role: 'user_sub',
+    name:'Pedro'
+  },
+  {
+    email: 'pablo@pablo.com',
+    role: 'user_reg',
+    name:'Pablo'
+  }
+]
+
   return (
     <>
+<<<<<<< HEAD
       <UserContext.Provider value={{user,idRol}}>
+=======
+      <UserContext.Provider value={{user, users, setRole, role}}>
+>>>>>>> 9553703e99e2e2482f4dfaf5a007f47898530d41
         {children}     
     </UserContext.Provider>
     </>

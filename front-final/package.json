@@ -20,7 +20,11 @@
     "react-datepicker": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+<<<<<<< HEAD
     "universal-cookie": "^7.1.0"
+=======
+    "react-table": "^7.8.0"
+>>>>>>> 9553703e99e2e2482f4dfaf5a007f47898530d41
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
