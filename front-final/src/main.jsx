@@ -9,10 +9,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Auth0Provider
-        domain="dev-5o2ot5rchgv4vcmr.eu.auth0.com"
-        clientId="rv35PHRVIz2yGAYfQXRAtC8Rd3ozZgoV"
+        domain={import.meta.env.VITE_AUTH0_DOMAIN}
+        clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
         authorizationParams={{
-          redirect_uri: "http://localhost:5173/",
+          redirect_uri: import.meta.env.VITE_HOME
         }}
       >
         <App />

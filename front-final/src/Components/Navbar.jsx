@@ -11,9 +11,9 @@ export const Navbar = () => {
 
   return (
     <>
-      <div>Navbar</div>
+      <ul className="flex-container space-around">
       {!isAuthenticated ? (
-        <ul>
+        <>
           <li>
             <Link to={"/"}>Home</Link>
           </li>
@@ -23,9 +23,9 @@ export const Navbar = () => {
           <li>
             <Login />
           </li>
-        </ul>
+        </>
       ) : role === "admin" ? (
-        <ul>
+        <>
           <li>
             <Link to={"/userdashboard"}>Usuarios</Link>
           </li>
@@ -38,9 +38,9 @@ export const Navbar = () => {
           <li>
             <Logout />
           </li>
-        </ul>
+        </>
       ) : role === "user_reg" ? (
-        <ul>
+        <>
           <li>
             <Link to={"/reservation"}>Reservas</Link>
           </li>
@@ -56,9 +56,9 @@ export const Navbar = () => {
           <li>
             <Logout />
           </li>
-        </ul>
+        </>
       ) : (
-        <ul>
+        <>
           <li>
             <Link to={"/adssub"}>Anuncios</Link>
           </li>
@@ -71,8 +71,9 @@ export const Navbar = () => {
           <li>
             <Logout />
           </li>
-        </ul>
+        </>
       )}
+      </ul>
     </>
   );
 };

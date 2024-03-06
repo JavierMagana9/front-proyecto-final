@@ -4,8 +4,9 @@ import { Navbar } from "../../Components";
 export const ReservationDashPage = () => {
   return (
     <>
-      <div>Reservas</div>
+     
       <Navbar />
+      <h2>Reservas</h2>
     </>
   );
 };

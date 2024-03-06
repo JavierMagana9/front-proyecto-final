@@ -5,21 +5,15 @@ import { UserContext } from "../../context/UserContext";
 export const UserDashPage = () => {
 
 const {users} = useContext(UserContext)
+
+
+
   return (
     <>
-      <div>Tabla de Usuarios</div>
+      
       <Navbar />
-
-    <table>
-    {users.map((user)=>{
-
-      <tr>
-        
-      </tr>
-
-    }) }
-
-    </table>
+      <h2>Tabla Usuarios</h2>
+   
 
     </>
   );

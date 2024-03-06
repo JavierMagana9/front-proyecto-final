@@ -7,7 +7,7 @@ export const Login = () => {
   return (
     
     <>
-      <button onClick={() => loginWithRedirect()}>Log In</button>;
+      <button className='no-btn' onClick={() => loginWithRedirect()}>Log In</button>;
     </>
   );
 };

@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
 const {user} = useAuth0()
 
 useEffect(()=>{
-setRole('admin')
+setRole('user_sub')
 }, [])
 
 
@@ -18,15 +18,18 @@ setRole('admin')
 const users = [
   {
     email: 'jorge@jorge.com',
-    role: 'admin'
+    role: 'admin',
+    name:'Jorge'
   },
   {
     email: 'pedro@pedro.com',
-    role: 'user_sub'
+    role: 'user_sub',
+    name:'Pedro'
   },
   {
     email: 'pablo@pablo.com',
-    role: 'user_reg'
+    role: 'user_reg',
+    name:'Pablo'
   }
 ]
 

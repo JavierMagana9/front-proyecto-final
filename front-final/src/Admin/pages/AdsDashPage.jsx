@@ -4,8 +4,9 @@ import { Navbar } from "../../Components";
 export const AdsDashPage = () => {
   return (
     <>
-      <div>Anuncios</div>
+      
       <Navbar />
+      <h2>Anuncios</h2>
     </>
   );
 };
