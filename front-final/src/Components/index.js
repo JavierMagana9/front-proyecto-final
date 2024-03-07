@@ -1,3 +1,7 @@
 export * from './Logout'
 export * from './Navbar'
 export * from './Login'
+export * from './NavBarAdmin'
+export * from './Header'
+export * from './Row'
+export * from './Table'

@@ -1,18 +1,18 @@
 import { Header } from "./Components/Header";
-import { AppRouter } from "./Routers/AppRouter";
+import { AppRouter } from "./Routers";
 import { DateProvider } from "./User/calendar/context/DateProvider";
 import { UserProvider } from "./context/UserProvider";
 
 function App() {
-
   return (
     <>
       <Header />
 
       <main className="container">
         <UserProvider>
+      
           <DateProvider>
-          <AppRouter />
+            <AppRouter />
           </DateProvider>
         </UserProvider>
       </main>

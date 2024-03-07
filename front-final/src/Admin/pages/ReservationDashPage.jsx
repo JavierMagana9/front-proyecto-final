@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar } from "../../Components";
+import { NavBarAdmin } from "../../Components";
 
 export const ReservationDashPage = () => {
   return (
     <>
      
-      <Navbar />
+      <NavBarAdmin/>
       <h2>Reservas</h2>
     </>
   );

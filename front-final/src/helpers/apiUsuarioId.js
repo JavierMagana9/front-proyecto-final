@@ -14,10 +14,10 @@ export const apiUsuarioId = async (userAuth) => {
     )
     const data = await res.json()
     
-      const cookies = new Cookies()
-      const rol=JSON.stringify(data.data[0].rol)
+    //   const cookies = new Cookies()
+    //   const rol=JSON.stringify(data.data[0].rol)
 
-      cookies.set('token',rol)
+    //   cookies.set('token',rol)
       
 }
 

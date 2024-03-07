@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 // import { LoadingPage } from '../../Pages/LoadingPage';
 import { Logout } from "../../Components/Logout";
 import { UserContext } from "../../context/UserContext";
-import { Navbar } from "../../Components";
 
 export const ProfilePage = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -13,7 +12,7 @@ export const ProfilePage = () => {
 
   return (
     <>
-      <Navbar />
+     
       {isAuthenticated && (
         <div>
           <Logout />

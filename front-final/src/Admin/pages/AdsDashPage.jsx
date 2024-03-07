@@ -1,12 +1,12 @@
 import React from "react";
-import { Navbar } from "../../Components";
+import { NavBarAdmin } from "../../Components";
 
 export const AdsDashPage = () => {
   return (
     <>
       
-      <Navbar />
-      <h2>Anuncios</h2>
+      <NavBarAdmin/>
+      <h2>Tabla Anuncios</h2>
     </>
   );
 };

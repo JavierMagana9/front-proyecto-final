@@ -16,7 +16,7 @@ export const Logout = () => {
     <button className='no-btn'
     onClick={() => {
       // setUser({})
-      logout({ logoutParams: { returnTo: 'http://localhost:5173/login' } })
+      logout({ logoutParams: { returnTo: 'http://localhost:5173/' } })
      
 
     }

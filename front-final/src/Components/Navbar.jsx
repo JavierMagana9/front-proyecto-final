@@ -19,40 +19,41 @@ export const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/adsfree"}>Anuncios</Link>
+            <Link to={"/anuncios"}>Anuncios</Link>
           </li>
 
 
       { ( role === "user_reg") ? (
           <>
+         
             <li>
-              <Link to={"/reservation"}>Reservas</Link>
+              <Link to={"/reservas"}>Reservas</Link>
             </li>
             <li>
-              <Link to={"/myads"}>Mis Anuncios</Link>
+              <Link to={"/mis-anuncios"}>Mis Anuncios</Link>
             </li>
             <li>
-              <Link to={"/profile"}>Perfil</Link>
+              <Link to={"/perfil"}>Perfil</Link>
             </li>
           
           </>
-        ) : (
+        ) : role === 'user_sub' ? (
           <>
-          
+            
             <li>
-              <Link to={"/myadssub"}>Mis Anuncios</Link>
+              <Link to={"/mis-anuncios-sub"}>Mis Anuncios</Link>
             </li>
             <li>
-              <Link to={"/profilesub"}>Perfil</Link>
+              <Link to={"/perfil-sub"}>Perfil</Link>
             </li>
            
           </>
-        )
+        ):(<p></p>)
       }
 
       {
         (isAuthenticated) ?  <li> <Logout /> </li> :  <li> <Login /></li>
-      }
+      } 
          
         </>
      
