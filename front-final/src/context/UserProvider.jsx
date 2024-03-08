@@ -4,76 +4,69 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
 
 export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
+  //   const [role, setRole] = useState('')
 
+  // const {user} = useAuth0()
+  // const [idRol, setIdRol] = useState(null)
 
-  const [user, setUser] = useState({})
+  // const postUser = async () => {
 
-//   const [role, setRole] = useState('')
-  
-// const {user} = useAuth0()
-// const [idRol, setIdRol] = useState(null)
+  //   const body={
+  //     id_usuario: user.sub ,
+  //     nickname: user.nickname,
+  //     email: user.email,
+  //     rol: "user_reg"
+  //   }
 
+  //   const respuesta = await fetch("http://localhost:5000/api/v1/users/crear-usuario", {
+  //       method: "POST", // or 'PUT'
+  //       body: JSON.stringify(body), // data can be `string` or {object}!
+  //       headers: {
+  //           'Content-Type': 'application/json'
+  //       },
+  //   }
+  //   )
+  //   const data = await respuesta.json()
+  //   console.log(data)
+  // }
 
-// const postUser = async () => {
+  // const getCookie = async () => {
 
-//   const body={
-//     id_usuario: user.sub ,
-//     nickname: user.nickname,
-//     email: user.email,
-//     rol: "user_reg"
-//   }
-  
-//   const respuesta = await fetch("http://localhost:5000/api/v1/users/crear-usuario", {
-//       method: "POST", // or 'PUT'
-//       body: JSON.stringify(body), // data can be `string` or {object}!
-//       headers: {
-//           'Content-Type': 'application/json'
-//       },
-//   }
-//   )
-//   const data = await respuesta.json()
-//   console.log(data)
-// }
+  // const id=user.sub
 
-// const getCookie = async () => {
+  //   const res = await fetch([`http://localhost:5000/api/v1/users/${id}`], {
+  //             headers: {
+  //           'Content-Type': 'application/json'
+  //       },
+  //   }
+  //   )
+  //   const data = await res.json()
 
-// const id=user.sub 
+  //   setIdRol(data)
+  //   const cookies = new Cookies()
 
-//   const res = await fetch([`http://localhost:5000/api/v1/users/${id}`], {
-//             headers: {
-//           'Content-Type': 'application/json'
-//       },
-//   }
-//   )
-//   const data = await res.json()
-  
-//   setIdRol(data)
-//   const cookies = new Cookies()
+  //   const json=JSON.stringify(data.data[0])
 
-//   const json=JSON.stringify(data.data[0])
+  //   cookies.set('token',json,{path: '/'})
+  //   console.log("en cookie",data.data[0])
+  // }
 
-//   cookies.set('token',json,{path: '/'})
-//   console.log("en cookie",data.data[0])
-// }
+  // useEffect(() => {
+  //   postUser()
+  //   getCookie()
+  // }, [user])
 
-// useEffect(() => {
-//   postUser()
-//   getCookie()
-// }, [user])
-
-
-// useEffect(()=>{
-//   setRole('user_sub')
-// }, [])
-
-
+  // useEffect(()=>{
+  //   setRole('user_sub')
+  // }, [])
 
   return (
     <>
-
-      <UserContext.Provider value={{user,  setUser}}>
-        {children}     
-    </UserContext.Provider>
+      <UserContext.Provider value={{ user, setUser, users, setUsers }}>
+        {children}
+      </UserContext.Provider>
     </>
   );
 };

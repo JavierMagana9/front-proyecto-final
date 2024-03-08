@@ -18,11 +18,11 @@ export const BaseRouter = () => {
         {user.role === 'admin' ? (
           <>
           {/* ruta logout */}
-            <Route path="/" element={<HomeFreePage />} />
+            {/* <Route path="/" element={<HomeFreePage />} /> */}
             <Route path="/tabla-usuarios" element={<UserDashPage />} />
             <Route path="/tabla-anuncios" element={<AdsDashPage />} />
             <Route path="/tabla-reservas" element={<ReservationDashPage />} />
-            <Route path="/*" element={<Navigate to='/' />} />
+            <Route path="/*" element={<Navigate to='/tabla-usuarios' />} />
           </>
 
         ) : user.role === 'user_reg' ? (

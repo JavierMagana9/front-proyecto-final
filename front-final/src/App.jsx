@@ -1,6 +1,7 @@
 import { Header } from "./Components/Header";
 import { AppRouter } from "./Routers";
 import { DateProvider } from "./User/calendar/context/DateProvider";
+import { ReservationProvider } from "./context/ReservationProvider";
 import { UserProvider } from "./context/UserProvider";
 
 function App() {
@@ -10,10 +11,11 @@ function App() {
 
       <main className="container">
         <UserProvider>
-      
+        <ReservationProvider>
           <DateProvider>
             <AppRouter />
           </DateProvider>
+          </ReservationProvider>
         </UserProvider>
       </main>
 
