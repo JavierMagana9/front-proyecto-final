@@ -24,7 +24,7 @@ export const Logout = () => {
   
       // Realiza el logout con Auth0, asegúrate de pasar los parámetros correctos según necesites
      //puede funcionar mejor q el vite_home una vez despleguemos en render window.location.origin
-      logout({ returnTo: 'http://localhost:5173/' });
+      logout({ returnTo: import.meta.env.VITE_HOME });
     };
   return (
     // <button className='no-btn'
