@@ -18,7 +18,7 @@ export const Logout = () => {
     onClick={() => {
       setIdBaseDatos('')
       setRole('')
-      logout({ logoutParams: { returnTo: 'http://localhost:5173/' } })
+      logout({ logoutParams: { returnTo: import.meta.env.VITE_HOME } })
     }
     }>
       Log Out
