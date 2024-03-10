@@ -4,18 +4,20 @@ import { UserContext } from '../context/UserContext';
 
 export const Logout = () => {
 
-  const {idBaseDatos, setIdBaseDatos}=useContext(UserContext)
+  const {idBaseDatos, setIdBaseDatos, role, setRole}=useContext(UserContext)
 
     const { logout } = useAuth0();
 
     useEffect(()=>{
       setIdBaseDatos('')
+      setRole('')
     },[])
 
   return (
     <button className='no-btn'
     onClick={() => {
       setIdBaseDatos('')
+      setRole('')
       logout({ logoutParams: { returnTo: 'http://localhost:5173/' } })
     }
     }>

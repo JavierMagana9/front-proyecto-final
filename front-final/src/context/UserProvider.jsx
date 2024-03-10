@@ -5,6 +5,7 @@ import Cookies from "universal-cookie";
 
 export const UserProvider = ({ children }) => {
 
+  const [role, setRole] = useState('')
   const [idBaseDatos, setIdBaseDatos] = useState('');
   //Utilizo users en las tablas
   const [users, setUsers] = useState([]);
@@ -68,7 +69,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <>
-      <UserContext.Provider value={{ idBaseDatos, setIdBaseDatos, users, setUsers }}>
+      <UserContext.Provider value={{ role, setRole, idBaseDatos, setIdBaseDatos, users, setUsers }}>
         {children}
       </UserContext.Provider>
     </>

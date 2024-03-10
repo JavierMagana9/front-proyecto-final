@@ -7,9 +7,9 @@ import { UserContext } from "../context";
 
 export const useToolkit = () => {
   const [auth, setAuth] = useState("");
-  const {idBaseDatos, setIdBaseDatos}=useContext(UserContext)
+  const {idBaseDatos, setIdBaseDatos, role, setRole}=useContext(UserContext)
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [role, setRole] = useState('')
+  
   // para traer el usuario de verdad de la base de datos,puede que mejor traerlo y luego  apiUsuario(userAuth);
 
   const bringingUserId = async() => {
@@ -26,18 +26,19 @@ export const useToolkit = () => {
   //SI esta autenticado y trae el rol de la api cambiar el estado auth a autorizado y si no no
 
   const authenticateUser = () => {
-    if(!user.sub){
-        return setAuth("You shall not pass");
-    } else {
+    // if(!user.sub){
+    //     return setAuth("You shall not pass");
+    // } else {
        
-       return user.sub === idBaseDatos && isAuthenticated
-       ? setAuth("Pass")
-       : setAuth("You shall not pass");
-    }  
+    //    return user.sub === idBaseDatos && isAuthenticated
+    //    ? setAuth("Pass")
+    //    : setAuth("You shall not pass");
+    // }  
   };
 
-  console.log(auth)
+//   console.log(auth)
 
+//Seteo la cookie una vez he autenticado con el rol, id_usuario
   // const cookies = new Cookies()
   // const getCookie = cookies.get('token')
   // console.log("este es el rol en la cookie",getCookie)

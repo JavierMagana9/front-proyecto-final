@@ -4,6 +4,7 @@ import { UserContext } from "../context/UserContext";
 import { apiTodosUsuarios } from "../helpers/apiTodosUsuarios";
 
 export const Table = () => {
+  
   const { users, setUsers } = useContext(UserContext);
   const [page, setPage] = useState(0);
   const [llaves, setLlaves] = useState([]);
@@ -23,9 +24,9 @@ export const Table = () => {
 
   const gettingKeys = async () => {
     
-    const keys = await Object.keys(users[0]);
+    // const keys = await Object.keys(users[0]);
     // console.log("gettingKeys",keys)
-    setLlaves(keys);
+    // setLlaves(keys);
     
   };
 

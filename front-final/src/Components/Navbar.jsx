@@ -37,7 +37,7 @@ export const Navbar = () => {
             </li>
           
           </>
-        ) :  (
+        ) :   role === "user_sub" ? (
           <>
             
             <li>
@@ -48,12 +48,15 @@ export const Navbar = () => {
             </li>
            
           </>
-        )
+        ) : (<></>)
       }
 
-      {
-        (auth === 'you shall not pass') ?  <li> <Login /></li> :  <li> <Logout /> </li>
-      } 
+      
+        {/* (auth === 'pass') ? */}
+        <li> <Logout /> </li> 
+        {/* :    */}
+        <li> <Login /></li> 
+       
          
         
      
