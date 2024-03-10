@@ -9,11 +9,11 @@ import { useToolkit } from "../hook/useToolkit";
 export const Navbar = () => {
   
   const {auth, role} = useToolkit()
-
+  console.log(auth)
   return (
     <>
       <ul className="flex-container space-around">
-      
+     
         
           <li>
             <Link to={"/"}>Home</Link>
@@ -21,7 +21,7 @@ export const Navbar = () => {
           <li>
             <Link to={"/anuncios"}>Anuncios</Link>
           </li>
-
+         
 
       { ( role === "user_reg") ? (
           <>
@@ -35,9 +35,9 @@ export const Navbar = () => {
             <li>
               <Link to={"/perfil"}>Perfil</Link>
             </li>
-          
+            <li> <Logout /> </li>
           </>
-        ) :   role === "user_sub" ? (
+        ) :   (role === "user_sub") ? (
           <>
             
             <li>
@@ -46,20 +46,15 @@ export const Navbar = () => {
             <li>
               <Link to={"/perfil-sub"}>Perfil</Link>
             </li>
-           
+            <li> <Logout /> </li>
           </>
         ) : (<></>)
       }
 
-      
-        {/* (auth === 'pass') ? */}
-        <li> <Logout /> </li> 
-        {/* :    */}
-        <li> <Login /></li> 
-       
-         
-        
-     
+      {/* <pre>{JSON.stringify(auth, null, 3)}</pre> */}
+        {/* {(auth === 'You shall not pass') ? ( <li> <Login /> </li> ) : ( <></> )} */}
+        {(!role) ? ( <li> <Login /> </li> ) : ( <></> )}
+
       </ul>
     </>
   );

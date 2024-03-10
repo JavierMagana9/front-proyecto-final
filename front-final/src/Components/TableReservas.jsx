@@ -13,7 +13,7 @@ export const TableReservas = () => {
   const bringingReservations = async () => {
     const reservas = await apiReservas();
     setReservation(reservas.data);
-    console.log(reservas);
+    // console.log(reservas);
   };
 
   useEffect(() => {
@@ -22,9 +22,9 @@ export const TableReservas = () => {
 
   const gettingKeysRes = async () => {
    
-    const keys = await Object.keys(reservation[0]);
+    const keys = Object.keys(reservation[0]);
     setLlavesReserva(keys);
-    console.log(keys)
+    // console.log(keys)
   };
 
   useEffect(() => {

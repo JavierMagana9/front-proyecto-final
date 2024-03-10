@@ -19,6 +19,7 @@ export const UserProvider = ({ children }) => {
   // const postUser = async () => {
 
   //   const body={
+    
   //     id_usuario: user.sub ,
   //     nickname: user.nickname,
   //     email: user.email,
