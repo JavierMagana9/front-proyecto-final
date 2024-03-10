@@ -24,15 +24,15 @@ export const Table = () => {
 
   const gettingKeys = async () => {
     
-    // const keys = await Object.keys(users[0]);
+    const keys = await Object.keys(users[0]);
     // console.log("gettingKeys",keys)
-    // setLlaves(keys);
+    setLlaves(keys);
     
   };
 
   useEffect(() => {
     gettingKeys();
-  }, [users]);
+  }, []);
 
   const handlerPreviousPage = () => {
     setPage(page - 1);

@@ -1,4 +1,4 @@
-export const apiUsuario = async () => {
+export const apiUsuario = async (body) => {
   
 
   const respuesta = await fetch(
@@ -11,6 +11,6 @@ export const apiUsuario = async () => {
       },
     }
   );
-  return await respuesta.json();
-  // console.log(data)
+ const data =  await respuesta.json();
+  console.log(data)
 };
