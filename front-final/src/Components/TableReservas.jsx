@@ -9,7 +9,6 @@ export const TableReservas = () => {
   const [page, setPage] = useState(0);
   const totalPages = 1;
 
-  
 
   const bringingReservations = async () => {
     const reservas = await apiReservas();

@@ -4,8 +4,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from "universal-cookie";
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+
+  const [idBaseDatos, setIdBaseDatos] = useState('');
+  //Utilizo users en las tablas
   const [users, setUsers] = useState([]);
+
+
   //   const [role, setRole] = useState('')
 
   // const {user} = useAuth0()
@@ -64,7 +68,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <>
-      <UserContext.Provider value={{ user, setUser, users, setUsers }}>
+      <UserContext.Provider value={{ idBaseDatos, setIdBaseDatos, users, setUsers }}>
         {children}
       </UserContext.Provider>
     </>

@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import { Logout } from "./Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Login } from "./Login";
+import { useToolkit } from "../hook/useToolkit";
 
 export const Navbar = () => {
-  const { isAuthenticated } = useAuth0();
-  const {user } = useContext(UserContext);
-  const {role}=user;
+  
+  const {auth, role} = useToolkit()
 
   return (
     <>
       <ul className="flex-container space-around">
       
-        <>
+        
           <li>
             <Link to={"/"}>Home</Link>
           </li>
@@ -37,7 +37,7 @@ export const Navbar = () => {
             </li>
           
           </>
-        ) : role === 'user_sub' ? (
+        ) :  (
           <>
             
             <li>
@@ -48,14 +48,14 @@ export const Navbar = () => {
             </li>
            
           </>
-        ):(<p></p>)
+        )
       }
 
       {
-        (isAuthenticated) ?  <li> <Logout /> </li> :  <li> <Login /></li>
+        (auth === 'you shall not pass') ?  <li> <Login /></li> :  <li> <Logout /> </li>
       } 
          
-        </>
+        
      
       </ul>
     </>

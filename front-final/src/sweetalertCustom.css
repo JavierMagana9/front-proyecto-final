@@ -1,0 +1,22 @@
+:root {
+    --prime-black: #220901;
+    --red-dark: #621708;
+    --prime-red: #941b0c;
+    --orange: #bc3908;
+    --yellow: #f6aa1c;
+    --green: #02848B;
+    
+  }
+
+
+.swal2-popup label {
+    display: block; 
+    padding: 0 15px;
+  
+  }
+  .swal2-confirm {
+    background-color: var(--yellow);
+  }
+  .swal2-cancel {
+    background-color: var(--prime-red);
+  }

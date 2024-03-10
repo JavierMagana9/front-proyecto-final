@@ -1,10 +1,5 @@
-export const apiUsuario = async (userAuth) => {
-  const body = {
-    id_usuario: userAuth.sub,
-    nickname: userAuth.nickname,
-    email: userAuth.email,
-    rol: "user_reg",
-  };
+export const apiUsuario = async () => {
+  
 
   const respuesta = await fetch(
     `${import.meta.env.VITE_URL_BASE}/users/crear-usuario`,
@@ -16,6 +11,6 @@ export const apiUsuario = async (userAuth) => {
       },
     }
   );
-  const data = await respuesta.json();
+  return await respuesta.json();
   // console.log(data)
 };

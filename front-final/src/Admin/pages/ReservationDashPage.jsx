@@ -9,7 +9,7 @@ export const ReservationDashPage = () => {
   return (
     <>
      
-      <NavBarAdmin/>
+      
       <h2>Reservas</h2>
       <TableReservas/>
     </>
