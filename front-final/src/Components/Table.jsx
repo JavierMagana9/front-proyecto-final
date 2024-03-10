@@ -4,7 +4,8 @@ import { UserContext } from "../context/UserContext";
 import { apiTodosUsuarios } from "../helpers/apiTodosUsuarios";
 
 export const Table = () => {
-  const { user, users, setUsers } = useContext(UserContext);
+  
+  const { users, setUsers } = useContext(UserContext);
   const [page, setPage] = useState(0);
   const [llaves, setLlaves] = useState([]);
 
@@ -31,7 +32,7 @@ export const Table = () => {
 
   useEffect(() => {
     gettingKeys();
-  }, [users]);
+  }, []);
 
   const handlerPreviousPage = () => {
     setPage(page - 1);

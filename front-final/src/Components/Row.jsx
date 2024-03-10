@@ -1,21 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context";
 import { apiEliminarUsuario } from "../helpers/apiEliminarUsuario";
 // import { UserContext } from "../UserContext";
 import Swal from 'sweetalert2'
 import { PopUpEdit } from "../helpers/PopUpEdit";
+import { apiEditarUsuarios } from "../helpers/apiEditarUsuarios";
 
 
 export const Row = ({ userData }) => {
-    const { users, setUsers } = useContext(UserContext);
+  const cambioNombre = userData.estado==="true"?"Activo":"Suspendido"
+    
+    const [toggle, setToggle] = useState(JSON.parse(userData.estado))
+    const [nombreBoton, setNombreBoton] = useState(cambioNombre)
 
+
+    
+    let dataToggle = {}
+  
    const handlerToggle = () => {
 
+    
+    const cambio = !toggle
+  
+    if(toggle === JSON.parse(userData.estado)){
+      
+      setToggle(cambio)
+      setNombreBoton("Activo")
+      console.log(nombreBoton)
+       dataToggle = {...userData, estado: userData.estado}
 
-   }
+     apiEditarUsuarios(userData.id_usuario, dataToggle) 
+    
+    }else{
+      setToggle(cambio)
+      setNombreBoton("Suspendido")
+      console.log(nombreBoton)
+       dataToggle = {...userData, estado: toggle.toString()}
+      apiEditarUsuarios(userData.id_usuario, dataToggle) 
+    }
+  }
 
+ 
   const handlerEditar = () => {
-    PopUpEdit(userData)
+    const userDataYestado = { ...userData, estado: userData.estado} 
+    PopUpEdit(userDataYestado)
   };
 
 
@@ -35,8 +63,9 @@ export const Row = ({ userData }) => {
         <td>{userData.email}</td>
         <td>{userData.rol}</td>
         <td>{userData.date}</td>
+        
         <td>
-          <button onClick={handlerToggle}></button>
+          <button id="botonToggle" onClick={handlerToggle}>{nombreBoton}</button>
         </td>
         <td>
           <button onClick={handlerEditar} >

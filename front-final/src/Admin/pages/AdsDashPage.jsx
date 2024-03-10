@@ -5,7 +5,7 @@ export const AdsDashPage = () => {
   return (
     <>
       
-      <NavBarAdmin/>
+      
       <h2>Tabla Anuncios</h2>
     </>
   );

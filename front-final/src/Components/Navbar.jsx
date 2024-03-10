@@ -4,24 +4,24 @@ import { Link } from "react-router-dom";
 import { Logout } from "./Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Login } from "./Login";
+import { useToolkit } from "../hook/useToolkit";
 
 export const Navbar = () => {
-  const { isAuthenticated } = useAuth0();
-  const {user } = useContext(UserContext);
-  const {role}=user;
-
+  
+  const {auth, role} = useToolkit()
+  console.log(auth)
   return (
     <>
       <ul className="flex-container space-around">
-      
-        <>
+     
+        
           <li>
             <Link to={"/"}>Home</Link>
           </li>
           <li>
             <Link to={"/anuncios"}>Anuncios</Link>
           </li>
-
+         
 
       { ( role === "user_reg") ? (
           <>
@@ -35,9 +35,9 @@ export const Navbar = () => {
             <li>
               <Link to={"/perfil"}>Perfil</Link>
             </li>
-          
+            <li> <Logout /> </li>
           </>
-        ) : role === 'user_sub' ? (
+        ) :   (role === "user_sub") ? (
           <>
             
             <li>
@@ -46,17 +46,15 @@ export const Navbar = () => {
             <li>
               <Link to={"/perfil-sub"}>Perfil</Link>
             </li>
-           
+            <li> <Logout /> </li>
           </>
-        ):(<p></p>)
+        ) : (<></>)
       }
 
-      {
-        (isAuthenticated) ?  <li> <Logout /> </li> :  <li> <Login /></li>
-      } 
-         
-        </>
-     
+      {/* <pre>{JSON.stringify(auth, null, 3)}</pre> */}
+        {/* {(auth === 'You shall not pass') ? ( <li> <Login /> </li> ) : ( <></> )} */}
+        {(!role) ? ( <li> <Login /> </li> ) : ( <></> )}
+
       </ul>
     </>
   );

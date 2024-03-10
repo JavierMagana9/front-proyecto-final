@@ -11,7 +11,7 @@ const {users} = useContext(UserContext)
 
   return (
     <>
-     <NavBarAdmin/>
+     
 <main className="container">
 
 <h2>Tabla Usuarios</h2>
