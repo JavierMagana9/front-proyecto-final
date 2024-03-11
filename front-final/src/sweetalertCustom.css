@@ -15,8 +15,8 @@
   
   }
   .swal2-confirm {
-    background-color: var(--yellow);
+    background-color: var(--green) !important;
   }
   .swal2-cancel {
-    background-color: var(--prime-red);
+    background-color: var(--prime-red) !important;
   }

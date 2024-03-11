@@ -8,10 +8,11 @@ export const ReservationPage = () => {
 
   return (
     <>
-      <div>ReservationPage
+
+      <div>
       
 
-<h1 >Reserva tu Sala con nosotros!!</h1>
+<h1 >¡¡Reserva tu sala con nosotros!!</h1>
 <p  >CALENDARIO DE RESERVAS</p>
 <div className="box-calendar">
 <CalendarPage />
