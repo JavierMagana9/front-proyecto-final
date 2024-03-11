@@ -10,7 +10,14 @@ export const apiReservas = async () => {
         },
       }
     );
+    if (!respuesta.ok) {
 
+      throw new Error ('Reservas no encontradas')
+      
+      }
+      
     return await respuesta.json();
-  } catch (error) {}
+  } catch (error) {
+
+  }
 };

@@ -11,6 +11,11 @@ export const apiUsuario = async (body) => {
       },
     }
   );
+  if (!respuesta.ok) {
+
+    throw new Error ('No se pudo registrar el usuario')
+    
+    }
  const data =  await respuesta.json();
   console.log(data)
 };

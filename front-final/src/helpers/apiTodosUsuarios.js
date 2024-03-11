@@ -10,6 +10,11 @@ export const apiTodosUsuarios = async () => {
         },
       }
     );
+    if (!respuesta.ok) {
+
+      throw new Error ('Usuarios no encontradas')
+      
+      }
 
     return await respuesta.json();
   } catch (error) {}

@@ -1,5 +1,12 @@
 import React from "react";
 
+
+/**
+ * Componente `Intro` que muestra una imagen.
+ * La imagen es de "People in Concert".
+ * 
+ * @returns {JSX.Element} 
+ */
 export const Intro = () => {
   return (
     <div className="foto">

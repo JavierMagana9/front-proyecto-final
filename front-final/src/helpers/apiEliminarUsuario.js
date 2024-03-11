@@ -13,7 +13,11 @@ export const apiEliminarUsuario = async(id) => {
           },
         }
       );
+      if (!respuesta.ok) {
 
+        throw new Error ('no se pudo eliminar el usuario')
+        
+        }
 
   } catch (error) {
 

@@ -6,6 +6,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Login } from "./Login";
 import { useToolkit } from "../hook/useToolkit";
 
+
+/**
+ * Componente `Navbar` que muestra una barra de navegación con enlaces dinámicos basados en el rol del usuario.
+ * Utiliza `useToolkit` para acceder al estado de autenticación y al rol del usuario.
+ * 
+ * Dependiendo del rol del usuario (`user_reg` o `user_sub`), se muestran diferentes enlaces.
+ * Los enlaces tienen un estilo subrayado cuando están.
+ * 
+ * - Todos los usuarios tienen acceso a los enlaces "Home" y "Anuncios".
+ * - Los usuarios con el rol `user_reg` tienen enlaces adicionales a "Reservas", "Mis Anuncios" y "Perfil".
+ * - Los usuarios con el rol `user_sub` tienen enlaces a "Mis Anuncios" y "Perfil" para sus respectivas versiones sub.
+ * - Si el usuario no tiene un rol definido, se muestra un botón de "Log In"; si tiene un rol, se muestra un botón de "Log Out".
+ * 
+ * @returns {JSX.Element} Una lista desordenada `<ul>` con clases para el estilo y enlaces `<NavLink>` para la navegación.
+ */
+
 export const Navbar = () => {
   
   const {auth, role} = useToolkit()
@@ -55,8 +71,7 @@ export const Navbar = () => {
         ) : (<></>)
       }
 
-      {/* <pre>{JSON.stringify(auth, null, 3)}</pre> */}
-        {/* {(auth === 'You shall not pass') ? ( <li> <Login /> </li> ) : ( <></> )} */}
+      
         {(!role) ? ( <li> <Login /> </li> ) : ( <></> )}
 
       </ul>
