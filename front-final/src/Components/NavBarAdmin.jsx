@@ -1,18 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Logout } from './Logout'
 
 export const NavBarAdmin = () => {
+
+  const activeStyle = {
+    textDecoration: "underline",
+  };
+
   return (
-    <ul className="flex-container space-around">
+    <ul className="flex-container space-around navbar">
  <li>
-            <Link to={"/tabla-usuarios"}>Usuarios</Link>
+            <NavLink to={"/tabla-usuarios"} style={({ isActive }) => (isActive ? activeStyle : {})}>Usuarios</NavLink>
           </li>
           <li>
-            <Link to={"/tabla-reservas"}>Reservas</Link>
+            <NavLink to={"/tabla-reservas"} style={({ isActive }) => (isActive ? activeStyle : {})}>Reservas</NavLink>
           </li>
           <li>
-            <Link to={"/tabla-anuncios"}>Tabla Anuncios</Link>
+            <NavLink to={"/tabla-anuncios"} style={({ isActive }) => (isActive ? activeStyle : {})}>Tabla Anuncios</NavLink>
           </li>
           <li>
             <Logout />

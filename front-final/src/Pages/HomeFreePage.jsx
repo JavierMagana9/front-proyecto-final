@@ -18,9 +18,6 @@ export const HomeFreePage = () => {
       {role === 'admin'? (<NavBarAdmin/>) : (<Navbar/>)}
 
 
-      <pre>{JSON.stringify(idBaseDatos, null, 3)}</pre>
-      <pre>{JSON.stringify(role, null, 3)}</pre>
-
       <Routes>
         {auth === "you shall not pass" ? (
           <>

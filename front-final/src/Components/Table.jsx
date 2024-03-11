@@ -46,7 +46,7 @@ export const Table = () => {
     <>
       {/* <pre>{JSON.stringify(users, null, 3)}</pre> */}
 
-      <table>
+      <table className="table">
         <thead>
           <tr>
             {llaves.map((key) => {
@@ -56,13 +56,13 @@ export const Table = () => {
             <th>eliminar</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {users.map((userData) => {
             return <Row key={userData.id_usuario} userData={userData} />;
           })}
         </tbody>
       </table>
-      <div>
+      <div className="align-center">
         <button onClick={handlerPreviousPage} disabled={page <= 0}>
           {"<"}
         </button>

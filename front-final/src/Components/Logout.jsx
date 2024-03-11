@@ -10,21 +10,17 @@ export const Logout = () => {
     const { logout } = useAuth0();
     const cookies = new Cookies();
 
-    // useEffect(()=>{
-    //   setIdBaseDatos('')
-    //   setRole('')
-    // },[])
     const handleLogout = () => {
-      // Limpia el contexto o estado global si es necesario
+      
       setIdBaseDatos('');
       setRole('');
   
-      // Elimina la cookie 'userInfo' (o el nombre que le hayas dado a tu cookie)
+      // Elimina la cookie 'userInfo'
       cookies.remove('userInfo', { path: '/' });
   
-      // Realiza el logout con Auth0, asegúrate de pasar los parámetros correctos según necesites
-     //puede funcionar mejor q el vite_home una vez despleguemos en render window.location.origin
-      logout({ returnTo: import.meta.env.VITE_HOME });
+      
+     //puede funcionar mejor q el vite_home una vez despleguemos en render: window.location.origin
+      logout({ returnTo: import.meta.env.VITE_HOME_LOCAL });
     };
   return (
     // <button className='no-btn'
