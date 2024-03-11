@@ -1,17 +1,25 @@
-import React, {useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DateContext } from '../context/DateContext'
+import { crearReserva } from '../helpers/crearReserva'
+import { UserContext } from '../../../context'
 
 export const PaymentPage = () => {
 
 
-    const [pay, setPay] = useState(null)
+    const [pay, setPay] = useState('')
+    // const [start, setStart] = useState('')
+    // const [end, SetEnd] = useState('')
 
-    const {stateStart,stateEnd} = useContext(DateContext)
+    const { stateStart, stateEnd } = useContext(DateContext)
+
+    const { idBaseDatos } = useContext(UserContext)
+
+
 
     const handleSubmit = async (ev) => {
         ev.preventDefault()
 
-        const calcHour={numero:(stateEnd-stateStart)/3600000}
+        const calcHour = { numero: (stateEnd - stateStart) / 3600000 }
 
         // const num = {numero:ev.target.numero.value}
 
@@ -32,19 +40,35 @@ export const PaymentPage = () => {
         //revisar la docu de fetch
     }
 
+    const redirection = () => {
+
+        const red = pay.url
+        return red
+
+    }
+
+
+    useEffect(() => {
+
+        redirection()
+        crearReserva(stateStart, stateEnd, idBaseDatos)
+
+
+    }
+        , [handleSubmit])
+
     return (
-        <div>PaymentPage
-             <div>
-                <img src='https://desacorde.periodismoudec.cl/wp-content/uploads/2022/11/IMG_5903.jpg' alt="SaladeEnsayo" />
-            </div> 
-            <pre>{JSON.stringify(pay, null, 3)}</pre>
-           
-            <form onSubmit={handleSubmit}>
-                {/* <input type='text' name='numero' /> */}
-                <input type='submit' value='SALA TEMPORAL' />
+        <div>
 
-            </form>
+            {/* <pre>{JSON.stringify(pay, null, 3)}</pre> */}
 
+            <button onClick={handleSubmit}>confirmar</button>
+
+            {/* <div>
+                <p>{stateStart}</p>
+                <p>{stateEnd}</p>
+            </div> */}
+            <a target='_blank' href={redirection()}>PAGAR</a>
 
         </div>
     )
