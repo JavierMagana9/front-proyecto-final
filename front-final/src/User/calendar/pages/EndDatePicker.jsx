@@ -13,7 +13,7 @@ export const EndDatePicker = () => {
 
 
     const handleDateChangeEnd = (date) => {
-        
+      
         setStateEnd(date)
       
     }

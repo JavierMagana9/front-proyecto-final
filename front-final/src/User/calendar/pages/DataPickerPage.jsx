@@ -14,7 +14,7 @@ const {msg,stateStart,setStateStart,stateEnd,setStateEnd}=useContext(DateContext
 
 
     const handleDateChangeStart = (date) => {
-        
+       
         setStateStart(date)
     
     }

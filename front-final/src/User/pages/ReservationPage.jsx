@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CalendarPage, DataPickerPage, EndDatePicker, PaymentPage } from "../calendar/pages";
+import { apiSalas } from "../calendar/helpers/apiSalas";
 
 
 export const ReservationPage = () => {
   
+// const [sala, setSala] =useState('')
+
+
+// const mostrarSalas=async()=>{
+
+//  const salas=await apiSalas()
+
+//  setSala(salas)
+// }
+
+// const handleSelect=(ev)=>{
+
+//   const select=ev.target.value
+// console.log(select)
+
+// }
+
+// useEffect(() => {
+// mostrarSalas()
+
+// }, [])
+
 
 
   return (
@@ -14,10 +37,16 @@ export const ReservationPage = () => {
 
 <h1 >¡¡Reserva tu sala con nosotros!!</h1>
 <p  >CALENDARIO DE RESERVAS</p>
-<div className="box-calendar">
+{/* <select onChange={handleSelect}>
+  {sala.map((item,index)=>{return<>
+    <option key={index}>{item.sala}</option>
+  </> })
+  }
+</select> */}
+<div>
 <CalendarPage />
 </div>
-<section>
+<section  className="align-center justify-center">
   <article>
     <p>Seleccione su hora de entrada</p>
     <DataPickerPage/>
