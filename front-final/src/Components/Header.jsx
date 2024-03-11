@@ -16,7 +16,7 @@ export const Header = () => {
             <p>MaCha Estudios</p>
             <div className="logo">
               <img
-                src="src/assets/MaCha_logo_final-sinfondo.png"
+                src="https://github.com/JavierMagana9/front-proyecto-final/blob/develop/front-final/src/assets/MaCha_logo_final-sinfondo.png?raw=true"
                 alt="MaCha logo"
               />
             </div>
