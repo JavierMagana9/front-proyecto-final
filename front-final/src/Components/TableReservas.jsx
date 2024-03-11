@@ -43,7 +43,7 @@ export const TableReservas = () => {
     <>
       {/* <pre>{JSON.stringify(llavesReserva, null, 3)}</pre> */}
 
-      <table>
+      <table className="table">
         <thead>
           <tr>
             {llavesReserva.map((key) => {
@@ -61,7 +61,7 @@ export const TableReservas = () => {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className="align-center">
         <button onClick={handlerPreviousPage}
          disabled={ page <= 0}>
           {"<"}

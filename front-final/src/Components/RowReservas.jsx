@@ -1,11 +1,12 @@
 import React from 'react'
+import { apiEliminarReserva } from '../helpers/apiEliminarReserva';
 
 export const RowReserva = ({reservaData}) => {
 
 
     const handlerEliminar = () => {
 
-      
+      apiEliminarReserva(reservaData.id_reserva)
 
     }
 
@@ -22,7 +23,7 @@ export const RowReserva = ({reservaData}) => {
         <td>{reservaData.ref_pago}</td>
         <td>{reservaData.sala}</td>
         <td>{reservaData.date}</td>
-        <td> <button onClick={handlerEliminar}>Eliminar</button></td>
+        <td> <button className="btn btn-red" onClick={handlerEliminar}>Eliminar</button></td>
       </tr>
     </>
   );
