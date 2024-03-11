@@ -20,7 +20,7 @@ function App() {
       </main>
 
       <footer className="align-center color-block-red-dark">
-        <p>footer</p>
+        <p>2024 copyright ©</p>
       </footer>
     </>
   );
