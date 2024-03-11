@@ -5,27 +5,26 @@ import { apiSalas } from "../calendar/helpers/apiSalas";
 
 export const ReservationPage = () => {
   
-// const [sala, setSala] =useState('')
+const [sala, setSala] =useState([])
 
+const mostrarSalas=async()=>{
 
-// const mostrarSalas=async()=>{
+ const salas=await apiSalas()
 
-//  const salas=await apiSalas()
+ setSala(salas)
+}
 
-//  setSala(salas)
-// }
+const handleSelect=(ev)=>{
 
-// const handleSelect=(ev)=>{
+  const select=ev.target.value
+console.log(select)
 
-//   const select=ev.target.value
-// console.log(select)
+}
 
-// }
+useEffect(() => {
+mostrarSalas()
 
-// useEffect(() => {
-// mostrarSalas()
-
-// }, [])
+}, [])
 
 
 
@@ -37,12 +36,12 @@ export const ReservationPage = () => {
 
 <h1 >¡¡Reserva tu sala con nosotros!!</h1>
 <p  >CALENDARIO DE RESERVAS</p>
-{/* <select onChange={handleSelect}>
+<select onChange={handleSelect}>
   {sala.map((item,index)=>{return<>
     <option key={index}>{item.sala}</option>
   </> })
   }
-</select> */}
+</select>
 <div>
 <CalendarPage />
 </div>
@@ -57,7 +56,6 @@ export const ReservationPage = () => {
   </article>
   <PaymentPage/>
 </section>
-
         
       </div>
       
