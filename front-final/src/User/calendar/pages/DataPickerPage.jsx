@@ -16,18 +16,18 @@ const {msg,stateStart,setStateStart,stateEnd,setStateEnd}=useContext(DateContext
     const handleDateChangeStart = (date) => {
         
         setStateStart(date)
-        console.log(date)
+    
     }
 
 // const dateStart=()=>{
 
-console.log("estado start",stateStart)
+
 // }
 
     return (
-        <div>DataPickerPage
-              <p>DATA PICKER START</p>
-            <pre>{JSON.stringify(stateStart, null, 3)}</pre>
+        <div>
+              {/* <p>DATA PICKER START</p>
+            <pre>{JSON.stringify(stateStart, null, 3)}</pre> */}
             {/* <pre>{JSON.stringify(start, null, 3)}</pre> */}
             {/* <DataPicker
                 selected={state}

@@ -9,7 +9,7 @@ export const DateProvider = ({ children }) => {
 
     return (
 
-        <DateContext.Provider value={{ msg: "=========aca toy",stateStart,setStateStart,stateEnd,setStateEnd }}>
+        <DateContext.Provider value={{stateStart,setStateStart,stateEnd,setStateEnd }}>
             {children}
         </DateContext.Provider>
     )

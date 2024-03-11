@@ -15,16 +15,16 @@ export const EndDatePicker = () => {
     const handleDateChangeEnd = (date) => {
         
         setStateEnd(date)
-        console.log(date)
+      
     }
 
 // const dateStart=()=>{
-console.log("estado en end",stateEnd)
+
 // }
   return (
-    <div>DataPickerPage
-         <p>DATA PICKER END</p>
-    <pre>{JSON.stringify(stateEnd, null, 3)}</pre>
+    <div>
+         {/* <p>DATA PICKER END</p>
+    <pre>{JSON.stringify(stateEnd, null, 3)}</pre> */}
     {/* <pre>{JSON.stringify(start, null, 3)}</pre> */}
     {/* <DataPicker
         selected={state}
