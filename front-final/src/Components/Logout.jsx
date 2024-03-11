@@ -21,7 +21,7 @@ export const Logout = () => {
       
      //puede funcionar mejor q el vite_home una vez despleguemos en render: window.location.origin
 
-      logout({ returnTo: import.meta.env.VITE_HOME_LOCAL });
+      logout({ returnTo: import.meta.env.VITE_HOME });
     };
   return (
     // <button className='no-btn'
