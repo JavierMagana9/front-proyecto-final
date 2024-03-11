@@ -36,7 +36,7 @@ export const PaymentPage = () => {
         setPay(data)
         console.log(data)
         // window.location.href = data.url
-
+        crearReserva(stateStart, stateEnd, idBaseDatos)
         //revisar la docu de fetch
     }
 
@@ -51,11 +51,10 @@ export const PaymentPage = () => {
     useEffect(() => {
 
         redirection()
-        crearReserva(stateStart, stateEnd, idBaseDatos)
+      
+    }, [handleSubmit])
 
 
-    }
-        , [handleSubmit])
 
     return (
         <div>
