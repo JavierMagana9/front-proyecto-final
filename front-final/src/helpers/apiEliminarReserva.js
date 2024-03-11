@@ -11,6 +11,12 @@ export const apiEliminarReserva = async(id_reserva) => {
           },
         }
       );
+      if (!respuesta.ok) {
+
+        throw new Error ('no se pudo eliminar la reserva')
+        
+        }
+
   } catch (error) {
     
   }

@@ -12,10 +12,12 @@ export const apiUsuarioId = async (id_usuario) => {
       },
     }
   );
+  if (!res.ok) {
+
+    throw new Error ('No se pudo encontrar el usuario')
+    
+    }
 return await res.json();
 
-  //   const cookies = new Cookies()
-  //   const rol=JSON.stringify(data.data[0].rol)
-
-  //   cookies.set('token',rol)
+  
 };
