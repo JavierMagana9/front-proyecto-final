@@ -10,7 +10,6 @@ export const Row = ({ userData }) => {
   const cambioNombre = userData.estado === "true" ? "Activo" : "Suspendido";
 
   const [toggle, setToggle] = useState(JSON.parse(userData.estado));
-  const [btnColor, setBtnColor] = useState();
   const [nombreBoton, setNombreBoton] = useState(cambioNombre);
 
   let dataToggle = {};
@@ -19,13 +18,14 @@ export const Row = ({ userData }) => {
     const cambio = !toggle;
 
 
-    setBtnColor(toggle ? "btn btn-green" : "btn btn-red")
+    
 
     if (toggle === JSON.parse(userData.estado)) {
       setToggle(cambio);
 
       setNombreBoton("Activo");
-      console.log(nombreBoton);
+     
+      // console.log(nombreBoton);
       dataToggle = { ...userData, estado: userData.estado };
 
       apiEditarUsuarios(userData.id_usuario, dataToggle);
@@ -38,11 +38,7 @@ export const Row = ({ userData }) => {
       apiEditarUsuarios(userData.id_usuario, dataToggle);
     }
 
-    if (nombreBoton === "Activo") {
-      setBtnColor("btn btn-green");
-    } else {
-      setBtnColor("btn btn-red");
-    }
+  
   };
 
   const handlerEditar = () => {
@@ -66,7 +62,7 @@ export const Row = ({ userData }) => {
         <td>{userData.date}</td>
 
         <td>
-          <button id="botonToggle" className={btnColor} onClick={handlerToggle}>
+          <button id="botonToggle" className={userData.estado==='true'?"btn btn-green":"btn btn-red"} onClick={handlerToggle}>
             {nombreBoton}
           </button>
         </td>

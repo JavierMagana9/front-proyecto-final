@@ -1,10 +1,15 @@
 import React from "react";
+import { Gallery } from "../Components/anuncios/Gallery";
 
 export const AdsFreePage = () => {
+
   return (
     <>
-      <div>AdsFreePage</div>
+      <h2>Anuncios</h2>
      
+
+    <Gallery/>
+
     </>
   );
 };

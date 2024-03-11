@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Login, NavBarAdmin, Navbar } from "../Components";
+import { Intro, Login, NavBarAdmin, Navbar } from "../Components";
 import { Navigate, Route, Routes } from "react-router-dom";
 // import { BaseRouter } from "../Routers";
 import { AdsFreePage } from "./AdsFreePage";
@@ -17,6 +17,7 @@ export const HomeFreePage = () => {
     {/* me falta hacer el navbar condicional con el navabar Admin */}
       {role === 'admin'? (<NavBarAdmin/>) : (<Navbar/>)}
 
+    <Intro/>
 
       <Routes>
         {auth === "you shall not pass" ? (
